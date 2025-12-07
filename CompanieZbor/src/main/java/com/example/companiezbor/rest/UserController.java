@@ -47,4 +47,14 @@ public class UserController {
         }
         return ResponseEntity.notFound().build();
     }
+
+    //enter username and password in post-body than receve user if exists
+    @PostMapping("/login")
+    public ResponseEntity<User> login(@RequestBody User user) {
+        return svc.findAll().stream()
+                .filter(u -> u.getUsername().equals(user.getUsername()) && u.getPassword().equals(user.getPassword()))
+                .findFirst()
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.status(401).build());
+    }
 }
