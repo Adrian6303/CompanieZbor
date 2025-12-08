@@ -10,12 +10,15 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "user_id", nullable = false)
+    @Column(name="user_id", nullable = false)
     private Integer userId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "flight_id", nullable = false)
-    private Flight flight;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "flight_id", nullable = false)
+//    private Flight flight;
+
+    @Column(name="flight_id", nullable = false)
+    private Integer flightId;
 
     public Integer getId() {
         return id;
@@ -28,16 +31,14 @@ public class Reservation {
     public Integer getUserId() {
         return userId;
     }
-
     public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
-    public Flight getFlight() {
-        return flight;
+    public Integer getFlightId() {
+        return flightId;
     }
-
-    public void setFlight(Flight flight) {
-        this.flight = flight;
+    public void setFlightId(Integer flightId) {
+        this.flightId = flightId;
     }
 }

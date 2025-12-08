@@ -24,8 +24,8 @@ public class Flight {
     private int duration;
 
 
-    @Column(nullable = false)
-    private Integer nr_seats;
+    @Column(name="nr_seats",nullable = false)
+    private Integer nrSeats;
 
     @Column
     private String plane_name;
@@ -36,7 +36,6 @@ public class Flight {
     public Integer getId() {
         return id;
     }
-
     public void setId(Integer id) {
         this.id = id;
     }
@@ -44,7 +43,6 @@ public class Flight {
     public String getDeparture() {
         return departure;
     }
-
     public void setDeparture(String departure) {
         this.departure = departure;
     }
@@ -52,7 +50,6 @@ public class Flight {
     public String getArrival() {
         return arrival;
     }
-
     public void setArrival(String destination) {
         this.arrival = destination;
     }
@@ -63,18 +60,21 @@ public class Flight {
     public void setDeparture_time(LocalDateTime departure_time) {
         this.departure_time = departure_time;
     }
+
     public int getDuration() {
         return duration;
     }
     public void setDuration(int duration) {
         this.duration = duration;
     }
+
     public Double getPrice() {
         return price;
     }
     public void setPrice(Double price) {
         this.price = price;
     }
+
     public String getPlane_name() {
         return plane_name;
     }
@@ -83,10 +83,9 @@ public class Flight {
     }
 
     public Integer getNr_seats() {
-        return nr_seats;
+        return nrSeats;
     }
-
     public void setNr_seats(Integer capacity) {
-        this.nr_seats = capacity;
+        this.nrSeats = capacity;
     }
 }

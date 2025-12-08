@@ -2,7 +2,7 @@ package com.example.companiezbor.service;
 
 import com.example.companiezbor.model.User;
 import org.springframework.stereotype.Service;
-import com.example.companiezbor.repo.UserRepository;
+import com.example.companiezbor.repository.UserRepository;
 import java.util.List;
 import java.util.Optional;
 

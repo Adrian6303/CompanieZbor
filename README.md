@@ -25,9 +25,11 @@
 
 ## TO DO
 
-* db + hibernate
-* spring boot config
-* rest services
+* db + hibernate done
+* spring boot config  done
+* rest services  done
 * react config 
 * login page
 * buy tickets page
+* populate database
+* test api calls
