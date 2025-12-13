@@ -1,0 +1,34 @@
+.loginPage {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.loginPage .accountCreatedMessage {
+    font-size: 18px;
+    color: #16A34A;
+    margin-bottom: 2rem;
+}
+
+.loginPage .title {
+    margin-bottom: 2rem;
+    font-size: 2.3em;
+}
+
+
+.loginPage .error {
+    font-size: 14px;
+    color: #DC2626;
+}
+
+.loginPage .registerMessage {
+    font-size: 12px;
+}
+
+.loginPage .link {
+    text-decoration: none;
+    color: #2563eb;
+}

@@ -1,0 +1,19 @@
+.registerPage {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.registerPage .title {
+    margin-bottom: 2rem;
+    font-size: 2.3em;
+}
+
+
+.registerPage .error {
+    font-size: 14px;
+    color: #DC2626;
+}

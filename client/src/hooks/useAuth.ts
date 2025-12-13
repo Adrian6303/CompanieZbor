@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { User } from "../types/user";
-import { loginUser } from "../api/userApi";
+import { loginUser, registerUser } from "../api/userApi";
 
 export const useAuth = () => {
     const [user, setUser] = useState<User | null>(null);
@@ -12,7 +12,14 @@ export const useAuth = () => {
         return result;
     };
 
+    const register = async (username: string, password: string) => {
+        const result = await registerUser(username, password);
+        if (result)
+            setUser(result);
+        return result;
+    }
+
     const logout = () => setUser(null);
 
-    return { user, login, logout };
+    return { user, login, register, logout };
 };
