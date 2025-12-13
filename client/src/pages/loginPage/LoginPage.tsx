@@ -5,7 +5,11 @@ import styles from "./LoginPage.module.css";
 import { Button } from "../../components/button/Button";
 import { useLocation, useNavigate } from "react-router-dom";
 
-const LoginPage = () => {
+interface Props {
+    setLogged: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const LoginPage = ({ setLogged }: Props) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
@@ -33,6 +37,7 @@ const LoginPage = () => {
                 admin: result.admin,
             })
         );
+        setLogged(true);
         navigate("/home");
     };
 

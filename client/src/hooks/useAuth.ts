@@ -19,7 +19,10 @@ export const useAuth = () => {
         return result;
     }
 
-    const logout = () => setUser(null);
+    const logout = () => {
+        sessionStorage.clear();
+        setUser(null);
+    };
 
     return { user, login, register, logout };
 };

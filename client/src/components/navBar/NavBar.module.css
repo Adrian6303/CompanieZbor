@@ -1,0 +1,25 @@
+.navBar {
+    display: flex;
+    padding: 1rem;
+    list-style-type: none;
+    background-color: #EFF6FF;
+    border-bottom: 1px solid #aac5ff;
+    gap: 1rem;
+}
+
+.navBar * {
+    background-color: #EFF6FF;
+    color: #172554; 
+}
+
+.navBar a {
+    text-decoration: none;
+}
+
+.navBar .welcome {
+    margin-left: auto;
+}
+
+.navBar .logout {
+    cursor: pointer;
+}
