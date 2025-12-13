@@ -43,9 +43,9 @@ const LoginPage = ({ setLogged }: Props) => {
 
     return (
         <div className={styles.loginPage}>
-        {fromRegister && 
-        <p className={styles.accountCreatedMessage}>Account created successfully! Login here</p>}
-        <h1 className={styles.title}>Login</h1>
+            {fromRegister && 
+            <p className={styles.accountCreatedMessage}>Account created successfully! Login here</p>}
+            <h1 className={styles.title}>Login</h1>
 
             <Input 
                 label="Username" 

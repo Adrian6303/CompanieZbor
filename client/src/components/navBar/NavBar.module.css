@@ -18,6 +18,7 @@
 
 .navBar .welcome {
     margin-left: auto;
+    cursor: pointer;
 }
 
 .navBar .logout {

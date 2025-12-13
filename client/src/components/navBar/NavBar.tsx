@@ -24,7 +24,9 @@ export const NavBar = ({ setLogged }: Props) => {
             <li><a href="/home">Home</a></li>
             <li><a href="/all-flights">See all flights</a></li>
             <li><a href="/reservations">Reservations</a></li>
-            <li className={styles.welcome}>Welcome, {user.username}</li>
+            <li className={styles.welcome} onClick={() => navigate("/account")}>
+                Welcome, {user.username}
+            </li>
             <li className={styles.logout} onClick={handleLogout}>logout</li>
         </ul>
     );

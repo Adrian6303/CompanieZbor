@@ -6,6 +6,17 @@
     gap: 1rem;
 }
 
+.actions {
+  grid-column: 4 / 5;
+  grid-row: 2 / 5;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+
 .defaultCard {
     border: 1px solid #d1d5db;
 }
@@ -19,33 +30,60 @@
     grid-column: 1 / 5;
 }
 
+.card .deleteMessage {
+    color: #DC2626;
+}
+
 .card .departure {
     grid-column: 1 / 2;
+    grid-row: 2 / 3;
 }
 
 .card .arrival {
     grid-column: 2 / 3;
+    grid-row: 2 / 3;
 }
 
 .card .planeName {
     grid-column: 3 / 4;
+    grid-row: 2 / 3;
 }
 
 .card .departureTime {
     grid-column: 1 / 4;
+    grid-row: 3 / 4;
 }
 
 .card .duration {
     grid-column: 1 / 3;
+    grid-row: 4 / 5;
 }
 
 .card .price {
     grid-column: 3 / 4;
+    grid-row: 4 / 5;
 }
 
-.card button {
-    grid-column: 4 / 5;
-    grid-row: 3 / 4;
-    align-self: center;
-    justify-self: end;
+.card .book {
+    width: 4rem;
+}
+
+.card .edit {
+    width: 4rem;
+    border-color: #F59E0B;
+    background-color: #FEF3C7;
+}
+
+.card .edit:hover {
+    background-color: #FDE68A;
+}
+
+.card .delete {
+    width: 4rem;
+    border-color: #DC2626;
+    background-color: #FEE2E2;
+}
+
+.card .delete:hover {
+    background-color: #FECACA;
 }
