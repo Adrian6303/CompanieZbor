@@ -1,12 +1,10 @@
 package com.example.companiezbor.rest;
 
-
 import com.example.companiezbor.model.Flight;
 import com.example.companiezbor.service.FlightService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController

@@ -1,5 +1,5 @@
 package com.example.companiezbor.model;
-import com.example.companiezbor.model.Flight;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -12,10 +12,6 @@ public class Reservation {
 
     @Column(name="user_id", nullable = false)
     private Integer userId;
-
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "flight_id", nullable = false)
-//    private Flight flight;
 
     @Column(name="flight_id", nullable = false)
     private Integer flightId;

@@ -3,7 +3,6 @@ package com.example.companiezbor.service;
 import com.example.companiezbor.model.Flight;
 import com.example.companiezbor.repository.FlightRepository;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 
