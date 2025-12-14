@@ -21,15 +21,3 @@
 * start_time date
 * duration int (minute)
 * price double
-
-
-## TO DO
-
-* db + hibernate done
-* spring boot config  done
-* rest services  done
-* react config 
-* login page
-* buy tickets page
-* populate database
-* test api calls
