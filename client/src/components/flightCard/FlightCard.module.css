@@ -88,3 +88,12 @@
 .card .delete:hover {
     background-color: #FECACA;
 }
+
+.deleteReservation {
+    border-color: #DC2626;
+    background-color: #FEE2E2;   
+}
+
+.card .deleteReservation:hover {
+    background-color: #FECACA;
+}

@@ -35,7 +35,7 @@ export const HomePage = () => {
                 <Button text="Search" handleClick={handleSearch} />
             </div>
             <div className={styles.flightContainer}>
-                {flight && <FlightCard {...flight} />}
+                {flight && <FlightCard flight={flight} />}
             </div>
         </div>
     );

@@ -2,10 +2,11 @@ import { useState } from "react";
 import type { Flight } from "../../types/flight";
 import { Button } from "../button/Button";
 import styles from "./FlightCard.module.css";
-import { postReservation } from "../../api/reservationsApi";
+import { deleteReservation, postReservation } from "../../api/reservationsApi";
 import { useAuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { deleteFlight } from "../../api/flightApi";
+import type { ReservationWithFlight } from "../../types/reservationWithFlight";
 
 const formatDepartureTime = (isoString: string) => {
     const date = new Date(isoString);
@@ -18,7 +19,14 @@ const formatDepartureTime = (isoString: string) => {
     });
 };
 
-export const FlightCard = (flight: Flight) => {
+interface Props {
+    flight: Flight;
+    isReservation?: boolean;
+    reservationId?: number;
+    setReservations? : React.Dispatch<React.SetStateAction<ReservationWithFlight[]>>;
+}
+
+export const FlightCard = ({ flight, isReservation = false, reservationId, setReservations }: Props) => {
     const [success, setSuccess] = useState(false);
     const [deleted, setDeleted] = useState(false);
     const { isAdmin } = useAuthContext();
@@ -35,6 +43,12 @@ export const FlightCard = (flight: Flight) => {
         const response = await deleteFlight(flight.id);
         if (response)
             setDeleted(true);
+    };
+
+    const handleDeleteReservation = async () => {
+        const response = await deleteReservation(reservationId || 0);
+        if (response && setReservations && reservationId)
+            setReservations(prev => prev.filter(r => r.id !== reservationId));
     };
 
     return (
@@ -64,11 +78,12 @@ export const FlightCard = (flight: Flight) => {
             </p>
 
             <div className={styles.actions}>
-                {isAdmin && 
+                {isReservation && <Button className={styles.deleteReservation} text="Delete Reservation" handleClick={handleDeleteReservation} />}
+                {isAdmin && !isReservation && 
                     <Button className={styles.edit} text="Edit" handleClick={() => navigate("/edit-flight", { state: { flight: flight }})} />}
-                {isAdmin && 
+                {isAdmin && !isReservation && 
                     <Button className={styles.delete} text="Delete" handleClick={handleDelete} />}
-                <Button className={styles.book} text="Book" handleClick={handleClick} />
+                {!isReservation && <Button className={styles.book} text="Book" handleClick={handleClick} />}
             </div>
             </>}
         </div>

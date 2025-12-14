@@ -20,7 +20,7 @@ export const AllFlightsPage = () => {
         <div className={styles.pageContainer}>
             <h1>Flights</h1>
             {flights && flights.map(flight => (
-                <FlightCard {...flight} key={flight.id} />
+                <FlightCard flight={flight} key={flight.id} />
             ))}
         </div>
     );
