@@ -53,15 +53,13 @@ public class ReservationController {
     }
 
     @GetMapping("/user/{userId}")
-    public ResponseEntity<Reservation> findByUserId(@PathVariable Integer userId) {
-        return service.findByUserId(userId).map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
+    public List<Reservation> findByUserId(@PathVariable Integer userId) {
+        return service.findByUserId(userId);
     }
 
     @GetMapping("/flight/{flightId}")
-    public ResponseEntity<Reservation> findByFlightId(@PathVariable Integer flightId) {
-        return service.findByFlightId(flightId).map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
+    public List<Reservation> findByFlightId(@PathVariable Integer flightId) {
+        return service.findByFlightId(flightId);
     }
 
     @GetMapping("/search")

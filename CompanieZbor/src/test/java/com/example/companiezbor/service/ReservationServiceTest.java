@@ -181,56 +181,62 @@ class ReservationServiceTest {
     @Test
     void testFindByUserId_ReservationExists() {
         // Arrange
-        when(reservationRepository.findByUserId(100)).thenReturn(Optional.of(testReservation1));
+        when(reservationRepository.findByUserId(100)).thenReturn(Arrays.asList(testReservation1, testReservation3));
 
         // Act
-        Optional<Reservation> result = reservationService.findByUserId(100);
+        List<Reservation> result = reservationService.findByUserId(100);
 
         // Assert
-        assertTrue(result.isPresent());
-        assertEquals(100, result.get().getUserId());
-        assertEquals(200, result.get().getFlightId());
+        assertNotNull(result);
+        assertEquals(2, result.size());
+        assertEquals(100, result.get(0).getUserId());
+        assertEquals(200, result.get(0).getFlightId());
+        assertEquals(100, result.get(1).getUserId());
+        assertEquals(202, result.get(1).getFlightId());
         verify(reservationRepository, times(1)).findByUserId(100);
     }
 
     @Test
     void testFindByUserId_ReservationDoesNotExist() {
         // Arrange
-        when(reservationRepository.findByUserId(999)).thenReturn(Optional.empty());
+        when(reservationRepository.findByUserId(999)).thenReturn(Arrays.asList());
 
         // Act
-        Optional<Reservation> result = reservationService.findByUserId(999);
+        List<Reservation> result = reservationService.findByUserId(999);
 
         // Assert
-        assertFalse(result.isPresent());
+        assertNotNull(result);
+        assertEquals(0, result.size());
         verify(reservationRepository, times(1)).findByUserId(999);
     }
 
     @Test
     void testFindByFlightId_ReservationExists() {
         // Arrange
-        when(reservationRepository.findByFlightId(200)).thenReturn(Optional.of(testReservation1));
+        when(reservationRepository.findByFlightId(200)).thenReturn(Arrays.asList(testReservation1));
 
         // Act
-        Optional<Reservation> result = reservationService.findByFlightId(200);
+        List<Reservation> result = reservationService.findByFlightId(200);
 
         // Assert
-        assertTrue(result.isPresent());
-        assertEquals(100, result.get().getUserId());
-        assertEquals(200, result.get().getFlightId());
+        assertNotNull(result);
+        assertEquals(1, result.size());
+        assertEquals(100, result.get(0).getUserId());
+        assertEquals(200, result.get(0).getFlightId());
         verify(reservationRepository, times(1)).findByFlightId(200);
     }
 
     @Test
     void testFindByFlightId_ReservationDoesNotExist() {
         // Arrange
-        when(reservationRepository.findByFlightId(999)).thenReturn(Optional.empty());
+        when(reservationRepository.findByFlightId(999)).thenReturn(Arrays.asList());
 
         // Act
-        Optional<Reservation> result = reservationService.findByFlightId(999);
+        List<Reservation> result = reservationService.findByFlightId(999);
 
         // Assert
-        assertFalse(result.isPresent());
+        assertNotNull(result);
+        assertEquals(0, result.size());
         verify(reservationRepository, times(1)).findByFlightId(999);
     }
 
@@ -320,16 +326,17 @@ class ReservationServiceTest {
     @Test
     void testFindByUserId_MultipleReservationsForSameUser() {
         // Arrange
-        // Even though user 100 has multiple reservations (testReservation1 and testReservation3),
-        // the repository method returns Optional, so it will return only one
-        when(reservationRepository.findByUserId(100)).thenReturn(Optional.of(testReservation1));
+        // User 100 has multiple reservations (testReservation1 and testReservation3)
+        when(reservationRepository.findByUserId(100)).thenReturn(Arrays.asList(testReservation1, testReservation3));
 
         // Act
-        Optional<Reservation> result = reservationService.findByUserId(100);
+        List<Reservation> result = reservationService.findByUserId(100);
 
         // Assert
-        assertTrue(result.isPresent());
-        assertEquals(100, result.get().getUserId());
+        assertNotNull(result);
+        assertEquals(2, result.size());
+        assertEquals(100, result.get(0).getUserId());
+        assertEquals(100, result.get(1).getUserId());
         verify(reservationRepository, times(1)).findByUserId(100);
     }
 

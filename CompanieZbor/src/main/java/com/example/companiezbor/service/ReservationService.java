@@ -28,11 +28,11 @@ public class ReservationService {
         repo.deleteById(id);
     }
 
-    public Optional<Reservation> findByUserId(Integer id) {
+    public List<Reservation> findByUserId(Integer id) {
         return repo.findByUserId(id);
     }
 
-    public Optional<Reservation> findByFlightId(Integer id) {
+    public List<Reservation> findByFlightId(Integer id) {
         return repo.findByFlightId(id);
     }
 
