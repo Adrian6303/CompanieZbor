@@ -16,6 +16,7 @@ public class UserService {
 
     public List<User> findAll() { return repo.findAll(); }
     public Optional<User> findById(Integer id) { return repo.findById(id); }
+    public Optional<User> findByUsername(String username) { return repo.findByUsername(username); }
     public User save(User user) { return repo.save(user); }
     public void deleteById(Integer id) { repo.deleteById(id); }
 }

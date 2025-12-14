@@ -51,9 +51,8 @@ public class UserController {
     //enter username and password in post-body than receive user if exists
     @PostMapping("/login")
     public ResponseEntity<User> login(@RequestBody User user) {
-        return service.findAll().stream()
-                .filter(u -> u.getUsername().equals(user.getUsername()) && u.getPassword().equals(user.getPassword()))
-                .findFirst()
+        return service.findByUsername(user.getUsername())
+                .filter(u -> u.getPassword() != null && u.getPassword().equals(user.getPassword()))
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.status(401).build());
     }

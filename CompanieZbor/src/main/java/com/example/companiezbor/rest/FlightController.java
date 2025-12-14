@@ -39,6 +39,21 @@ public class FlightController {
         }).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Flight> update(@PathVariable Integer id, @RequestBody Flight flight) {
+        return service.findById(id).map(existing -> {
+            existing.setDeparture(flight.getDeparture());
+            existing.setArrival(flight.getArrival());
+            existing.setDeparture_time(flight.getDeparture_time());
+            existing.setDuration(flight.getDuration());
+            existing.setNr_seats(flight.getNr_seats());
+            existing.setPlane_name(flight.getPlane_name());
+            existing.setPrice(flight.getPrice());
+            Flight updated = service.save(existing);
+            return ResponseEntity.ok(updated);
+        }).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
     @GetMapping("/search")
     public ResponseEntity<Flight> findByDepartureAndArrival(@RequestParam String departure,
                                                             @RequestParam String arrival) {

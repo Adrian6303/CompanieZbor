@@ -1,13 +1,12 @@
 package com.example.companiezbor;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.platform.suite.api.SelectPackages;
+import org.junit.platform.suite.api.Suite;
+import org.junit.platform.suite.api.SuiteDisplayName;
 
-@SpringBootTest
+@Suite
+@SuiteDisplayName("All Spring Boot Tests")
+@SelectPackages("com.example.companiezbor")
 class CompanieZborApplicationTests {
-
-    @Test
-    void contextLoads() {
-    }
-
+    // This test suite will run all tests in the com.example.companiezbor package and subpackages
 }

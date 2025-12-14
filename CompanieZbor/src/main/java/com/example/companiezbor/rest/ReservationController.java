@@ -25,7 +25,7 @@ public class ReservationController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Reservation> findById(@PathVariable Integer id) {
+    public ResponseEntity<Reservation> get(@PathVariable Integer id) {
         return service.findById(id).map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
@@ -37,10 +37,20 @@ public class ReservationController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteById(@PathVariable Integer id) {
+    public ResponseEntity<Void> delete(@PathVariable Integer id) {
         return service.findById(id).map(r -> {
             service.deleteById(id);
             return ResponseEntity.noContent().<Void>build();
+        }).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Reservation> update(@PathVariable Integer id, @RequestBody Reservation reservation) {
+        return service.findById(id).map(existing -> {
+            existing.setUserId(reservation.getUserId());
+            existing.setFlightId(reservation.getFlightId());
+            Reservation updated = service.save(existing);
+            return ResponseEntity.ok(updated);
         }).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
