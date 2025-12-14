@@ -1,0 +1,33 @@
+.pageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3rem;
+    gap: 1rem;
+}
+
+.pageContainer .title {
+    margin-bottom: 4rem;
+}
+
+.pageContainer .errorMessage {
+    color: #DC2626;
+}
+
+.pageContainer .message {
+    color: #16A34A;
+}
+
+.pageContainer .updateUsernameContainer {
+    display: flex;
+    gap: 1rem;
+}
+
+.pageContainer .deleteAccountButton {
+    border-color: #DC2626;
+    background-color: #FEE2E2;
+}
+
+.pageContainer .deleteAccountButton:hover {
+    background-color: #FECACA;
+}

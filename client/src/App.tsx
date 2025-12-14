@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { AllFlightsPage } from './pages/allFlightsPage/AllFlightsPage';
 import { ReservationsPage } from './pages/reservationsPage/ReservationsPage';
 import { EditFlightPage } from './pages/editFlightPage/EditFlightPage';
+import { AccountPage } from './pages/accountPage/AccountPage';
 
 function App() {
   const [logged, setLogged] = useState<boolean>(() => {
@@ -23,6 +24,7 @@ function App() {
         <Route path="/all-flights" element={<AllFlightsPage />} />
         <Route path="/reservations" element={<ReservationsPage />} />
         <Route path="/edit-flight" element={<EditFlightPage />} />
+        <Route path="/account" element={<AccountPage setLogged={setLogged} />} />
       </Routes> 
     </BrowserRouter>
   );

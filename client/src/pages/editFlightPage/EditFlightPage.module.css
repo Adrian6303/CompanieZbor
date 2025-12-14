@@ -17,3 +17,7 @@
 .pageContainer .formContainer > div {
     margin-bottom: 1rem;
 }
+
+.pageContainer .errorMessage {
+    color: #DC2626;
+}
